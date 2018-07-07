@@ -26,6 +26,9 @@ File: style.css
 /**  =====================
       Custom css start
 ==========================  **/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 body {
   background-color: #f3f3f3;
   font-size: 0.875em;
@@ -18026,3 +18029,129 @@ body.menu-bottom .navbar-wrapper {
   overflow: visible !important; }
 
 /*# sourceMappingURL=style.css.map */
+
+.camera{
+    width: 100%;
+    position: relative;
+}
+
+.camera video#camera-stream{
+    display: none;
+    width: 100%;
+}
+
+.camera img{
+    margin-bottom: 10px;
+}
+
+.camera #error-message{
+    width: 100%;
+    background-color: #ccc;
+    color: #9b9b9b;
+    font-size: 28px;
+    padding: 200px 100px;
+    text-align: center;
+    display: none;
+}
+
+.camera .controls{
+    position: absolute;
+    bottom: 10%;
+    left: 33%;
+    width: 35%;
+    height: 100%;
+    z-index: 20;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.camera .controls a{
+    border-radius: 50%;
+    color: #fff;
+    background-color: #111;
+    text-decoration: none;
+    padding: 15px;
+    line-height: 0;
+    opacity: 0.7;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.camera .controls a:hover{
+    opacity: 1;
+}
+
+.camera .controls a.disabled{
+    background-color: #555;
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+}
+
+.camera .controls a.disabled:hover{
+    opacity: 0.5;
+}
+
+.camera .controls a i{
+    font-size: 18px;
+}
+
+.camera canvas{
+    display: none;
+}
+
+
+
+.camera video.visible,
+.camera img.visible,
+.camera #error-message.visible
+{
+    display: block;
+}
+
+.camera .controls.visible{
+    display: flex;
+}
+
+
+
+@media(max-width: 1000px){
+    .container{
+        margin: 40px;
+    }
+
+    .camera #start-camera.visible{
+        display: block;
+    }
+
+    .camera .controls a i{
+        font-size: 16px;
+    }
+
+    .camera .controls #take-photo i{
+        font-size: 24px;
+    }
+}
+
+
+@media(max-width: 600px){
+    .container{
+        margin: 10px;
+    }
+
+    .camera #error-message{
+        padding: 80px 50px;
+        font-size: 18px;
+    }
+
+    .camera .controls a i{
+        font-size: 12px;
+    }
+
+    .camera .controls #take-photo i{
+        font-size: 18px;
+    }
+}

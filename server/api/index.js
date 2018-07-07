@@ -1,5 +1,7 @@
-const login = require('./login')
+const user = require('./user')
+const program = require('./program')
 
 module.exports = {
-    login: login
+    user: user,
+    program: program
 }

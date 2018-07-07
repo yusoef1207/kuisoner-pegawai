@@ -1,7 +1,15 @@
 var db = require('../../db');
-var User = {  
-    getAllUser: function(callback) {  
-        return db.query("Select * from tcity", callback);  
-    }
+var User = {
+    authenticate: function(body, callback) {  
+        return db.query("Select * from tapplicant where email=? and password=?", [body.email, body.password], callback);  
+    },
+    getById: function(id, callback) {  
+        return db.query("Select * from tapplicant where applicant_id=?", [id], callback);  
+    },
+    addPhoto: function(data, callback) {  
+        db.query("Insert into tapplicanthistory (applicant_id, client_id, login_time, photo) values(?,?,?,?)", [data.applicant_id, data.client_id, data.login_time, data.photo], function(err, res, field) {
+        	return db.query("Select * from tapplicanthistory where applicant_id=? and login_time=?", [data.applicant_id, data.login_time], callback);
+        });
+    },
 };  
 module.exports = User; 
